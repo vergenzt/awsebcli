@@ -851,11 +851,11 @@ def setenv(app_name, env_name, var_list, region):
     options_to_remove = []
     for pair in var_list:
         ## validate
-        if not re.match('^[\w\\_.:/+@-][^=]*=([\w\\_.:/+@-][^=]*)?$', pair):
+        if not re.match('^[\w\\_.:/+@-][^=]*=([\w\\_.:/+@-].*)?$', pair):
             io.log_error(strings['setenv.invalidformat'])
             return
         else:
-            option_name, value = pair.split('=')
+            option_name, value = pair.split('=', 1)
             d = {'Namespace': namespace,
                  'OptionName': option_name}
 
