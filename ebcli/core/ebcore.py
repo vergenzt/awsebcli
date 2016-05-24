@@ -138,5 +138,3 @@ def main():
         message = next(io._convert_to_strings([e]))
         io.log_error(e.__class__.__name__ + " :: " + message)
         app.close(code=10)
-    finally:
-        app.close()
